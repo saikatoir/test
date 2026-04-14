@@ -1,18 +1,43 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Allow users to submit quotes, sales, and messages
+    
+    // Helper: Check if user is the admin
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email == 'saikat351h@gmail.com';
+    }
+
+    // Helper: Basic string validation
+    function isSafeString(val, maxLen) {
+      return val is string && val.size() <= maxLen;
+    }
+
     match /quotes/{quoteId} {
-      allow create: if true;
-      allow read, update, delete: if request.auth != null;
+      // Anyone can submit a quote, but we validate the schema
+      allow create: if 
+        isSafeString(request.resource.data.brand, 50) &&
+        isSafeString(request.resource.data.model, 100) &&
+        isSafeString(request.resource.data.email, 100) &&
+        request.resource.data.status == 'pending';
+      
+      // Only Admin can view/edit/delete
+      allow read, update, delete: if isAdmin();
     }
+
     match /sales/{saleId} {
-      allow create: if true;
-      allow read, update, delete: if request.auth != null;
+      allow create: if 
+        isSafeString(request.resource.data.name, 100) &&
+        isSafeString(request.resource.data.email, 100);
+      
+      allow read, update, delete: if isAdmin();
     }
+
     match /messages/{messageId} {
-      allow create: if true;
-      allow read, update, delete: if request.auth != null;
+      allow create: if 
+        isSafeString(request.resource.data.name, 100) &&
+        isSafeString(request.resource.data.message, 2000);
+      
+      allow read, update, delete: if isAdmin();
     }
   }
 }
