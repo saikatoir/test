@@ -1,89 +1,184 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sell your phone for cash quickly and easily. Get paid within 1-2 business days.">
+  <meta name="keywords" content="sell phone, cash for phone, sell used phone, phone recycling, Fone2Cash">
+  <meta name="author" content="Fone2Cash">
+  
+  <title>Sell Your Phone for Cash | Fone2Cash</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.12.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.12.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.12.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.12.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.12.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.12.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.12.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.12.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.12.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.12.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+  <!-- Navigation -->
+  <header class="branding-header">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <a href="index.html" class="branding-logo">Fone<span>2</span>Cash</a>
+      <nav class="desktop-nav">
+        <ul style="display: flex; gap: 32px; font-weight: 500;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sell.html">Sell Phone</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="send.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="home.html" class="btn btn-primary" style="padding: 10px 24px;">Get Quote</a>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+  </header>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container" data-animate>
+        <h1>Turn Your Used Phone Into <span>Fast Cash</span></h1>
+        <p>The smartest, most secure way to sell your electronics. Get a professional quote in seconds and get paid within 1-2 business days.</p>
+        <div style="display: flex; gap: 16px; justify-content: center;">
+          <a href="home.html" class="btn btn-primary">Get Your Custom Quote</a>
+          <a href="#how-it-works" class="btn" style="background: white; border: 1px solid var(--border); color: var(--primary);">How It Works</a>
+        </div>
+      </div>
+    </section>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+    <!-- Steps Section -->
+    <section id="how-it-works" class="how-it-works">
+      <div class="container">
+        <div class="section-header" data-animate>
+          <h2>How It Works</h2>
+          <p style="color: var(--text-muted);">Selling your phone has never been this professional and easy.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card" data-animate>
+            <div class="step-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+            <h3>1. Select Device</h3>
+            <p>Choose your phone's brand, model, and storage capacity to get started with your quote.</p>
+          </div>
+          <div class="step-card" data-animate>
+            <div class="step-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+            <h3>2. Describe Condition</h3>
+            <p>Provide a quick assessment of your phone's state for a transparent and fair offer.</p>
+          </div>
+          <div class="step-card" data-animate>
+            <div class="step-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <h3>3. Ship For Free</h3>
+            <p>Send your device safely using our complimentary shipping label. No hidden costs.</p>
+          </div>
+          <div class="step-card" data-animate>
+            <div class="step-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+            <h3>4. Get Paid</h3>
+            <p>Receive your payment within 1-2 business days after our expert inspection.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-item" data-animate>
+            <i class="fa-solid fa-shield-halved"></i>
+            <div>
+              <h3>Secure & Reliable</h3>
+              <p>Your data security is our priority. We ensure all devices are wiped and processed securely.</p>
+            </div>
+          </div>
+          <div class="feature-item" data-animate>
+            <i class="fa-solid fa-bolt"></i>
+            <div>
+              <h3>Fast Turnaround</h3>
+              <p>Inspection within 5 hours of arrival and payment initiated within 6 hours. Speed you can trust.</p>
+            </div>
+          </div>
+          <div class="feature-item" data-animate>
+            <i class="fa-solid fa-handshake"></i>
+            <div>
+              <h3>Best Price Guarantee</h3>
+              <p>We strive to offer the most competitive prices in the market. Fair value for every device.</p>
+            </div>
+          </div>
+          <div class="feature-item" data-animate>
+            <i class="fa-solid fa-leaf"></i>
+            <div>
+              <h3>Eco-Friendly</h3>
+              <p>Help reduce electronic waste. We recycle or refurbish every phone we buy.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="branding-logo" style="color: white; margin-bottom: 24px; display: block;">Fone<span>2</span>Cash</a>
+          <p style="color: #94A3B8; max-width: 400px;">
+            Providing a professional, secure, and efficient way to recycle and sell your electronics since 2026.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="send.html">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="sell.html">Sell Your Phone</a></li>
+            <li><a href="home.html">Get a Quote</a></li>
+            <li><a href="#">Corporate Buyback</a></li>
+            <li><a href="#">Wholesale</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Fone2Cash. All rights reserved. Designed for excellence.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for Animations
+    const observerOptions = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
         }
       });
-    </script>
-  </body>
+    }, observerOptions);
+
+    document.querySelectorAll('[data-animate]').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Header Scroll Effect
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.branding-header');
+      if (window.scrollY > 50) {
+        header.style.height = '70px';
+        header.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+      } else {
+        header.style.height = 'var(--header-height)';
+        header.style.boxShadow = 'none';
+      }
+    });
+  </script>
+</body>
 </html>
