@@ -12,6 +12,28 @@
       margin: 40px auto;
       padding: 0 24px;
     }
+    @media (max-width: 768px) {
+      .dashboard-container {
+        padding: 0 16px;
+        margin: 20px auto;
+      }
+      .header-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .quote-table {
+        display: block;
+        overflow-x: auto;
+      }
+      .tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
     .header-flex {
       display: flex;
       justify-content: space-between;

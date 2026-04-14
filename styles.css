@@ -278,15 +278,130 @@ img {
   font-size: 0.875rem;
 }
 
-/* Responsive */
+/* Responsive Improvements */
 @media (max-width: 768px) {
+  :root {
+    --header-height: 70px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  /* Typography */
+  .hero h1 {
+    font-size: 2.25rem;
+    line-height: 1.1;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    margin-bottom: 32px;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  /* Navigation */
+  .desktop-nav {
+    display: none; /* Hide standard nav on very small screens or refactor */
+  }
+  
+  /* We'll implement a simple mobile-friendly nav pattern */
+  .branding-header .container {
+    padding: 0 16px;
+  }
+  
+  .branding-logo {
+    font-size: 1.25rem;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+
+  /* Sections */
   .hero {
     padding: 120px 0 60px;
   }
-  
+
+  .how-it-works, .features-section {
+    padding: 60px 0;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .step-card {
+    padding: 30px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .feature-item {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Footer */
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 40px;
+    text-align: center;
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-col p {
+    margin-inline: auto;
+  }
+}
+
+/* Specific fix for the nav to allow scrolling on small screens if we keep it */
+@media (max-width: 640px) {
+  .desktop-nav {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-top: 1px solid var(--border);
+    padding: 12px 0;
+    z-index: 1000;
+    box-shadow: 0 -4px 6px -1px rgba(0,0,0,0.05);
+  }
+
+  .desktop-nav ul {
+    justify-content: space-around;
+    gap: 10px !important;
+  }
+
+  .desktop-nav ul li a {
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  body {
+    padding-bottom: 70px; /* Space for bottom nav */
+  }
+  
+  .branding-header .btn {
+    display: none; /* Hide CTA in header on tiny screens, it's in the nav usually */
   }
 }
 
