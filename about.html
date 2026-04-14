@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Fone2Cash</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .about-hero {
+      padding: 160px 0 80px;
+      background: linear-gradient(to bottom, #F0F9FF, #F8FAFC);
+      text-align: center;
+    }
+
+    .about-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .about-content {
+      padding: 80px 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-content p {
+      font-size: 1.125rem;
+      color: var(--secondary);
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px;
+      margin-top: 60px;
+    }
+
+    .value-card {
+      padding: 32px;
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .value-card i {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .value-card h3 {
+      margin-bottom: 12px;
+    }
+
+    .value-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="branding-header">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <a href="index.html" class="branding-logo">Fone<span>2</span>Cash</a>
+      <nav class="desktop-nav">
+        <ul style="display: flex; gap: 32px; font-weight: 500;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sell.html">Sell Phone</a></li>
+          <li><a href="about.html" class="active" style="color: var(--accent);">About</a></li>
+          <li><a href="send.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="home.html" class="btn btn-primary" style="padding: 10px 24px;">Get Quote</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="about-hero">
+      <div class="container" data-animate>
+        <h1>Our Mission</h1>
+        <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+          Simplifying the way you sell and recycle your electronics while ensuring maximum value and environmental responsibility.
+        </p>
+      </div>
+    </section>
+
+    <section class="about-content">
+      <div class="container" data-animate>
+        <p>
+          At Fone2Cash, we believe that selling your used or broken electronics should be a professional, transparent, and rewarding experience. Founded in 2026, we've set out to bridge the gap between people with unused devices and the global need for sustainable electronics recycling.
+        </p>
+        <p>
+          Whether your phone is brand new or has seen better days, we provide a hassle-free platform to turn that hardware into instant cash. Our process is designed with the customer in mind—offering free shipping, professional inspections, and rapid payments.
+        </p>
+
+        <div class="values-grid">
+          <div class="value-card" data-animate>
+            <i class="fa-solid fa-gem"></i>
+            <h3>Integrity</h3>
+            <p>We provide fair, transparent valuations for every device, every time.</p>
+          </div>
+          <div class="value-card" data-animate>
+            <i class="fa-solid fa-seedling"></i>
+            <h3>Sustainability</h3>
+            <p>Every phone we buy is either refurbished or recycled responsibly.</p>
+          </div>
+          <div class="value-card" data-animate>
+            <i class="fa-solid fa-user-tie"></i>
+            <h3>Professionalism</h3>
+            <p>Our expert team ensures a seamless experience from quote to payment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="branding-logo" style="color: white; margin-bottom: 24px; display: block;">Fone<span>2</span>Cash</a>
+          <p style="color: #94A3B8; max-width: 400px;">
+            Providing a professional, secure, and efficient way to recycle and sell your electronics since 2026.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="send.html">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="sell.html">Sell Your Phone</a></li>
+            <li><a href="home.html">Get a Quote</a></li>
+            <li><a href="#">Corporate Buyback</a></li>
+            <li><a href="#">Wholesale</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Fone2Cash. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

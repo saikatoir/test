@@ -1,0 +1,11 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /quotes/{allPaths=**} {
+      // Anyone can upload media for a quote
+      allow create: if true;
+      // Only authenticated admins can read/view the media
+      allow read, update, delete: if request.auth != null;
+    }
+  }
+}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Fone2Cash</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .contact-container {
+      max-width: 900px;
+      margin: 140px auto 80px;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 48px;
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-info {
+      background: var(--primary);
+      color: white;
+      padding: 48px;
+    }
+
+    .contact-info h2 {
+      color: white;
+      font-size: 1.75rem;
+      margin-bottom: 24px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .info-item i {
+      font-size: 1.25rem;
+      color: var(--accent);
+    }
+
+    .contact-form-side {
+      padding: 48px;
+    }
+
+    .contact-form-side h2 {
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+      background: var(--bg);
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+        margin: 100px 16px 40px;
+      }
+      .contact-info, .contact-form-side {
+        padding: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="branding-header">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <a href="index.html" class="branding-logo">Fone<span>2</span>Cash</a>
+      <nav class="desktop-nav">
+        <ul style="display: flex; gap: 32px; font-weight: 500;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sell.html">Sell Phone</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="send.html" class="active" style="color: var(--accent);">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="home.html" class="btn btn-primary" style="padding: 10px 24px;">Get Quote</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="contact-container" data-animate class="visible">
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <p style="color: #94A3B8; margin-bottom: 40px;">Have questions about your quote or our process? Our team is here to help.</p>
+          
+          <div class="info-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <p style="font-weight: 600;">Email Us</p>
+              <p style="color: #94A3B8;">support@fone2cash.com</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <p style="font-weight: 600;">Office</p>
+              <p style="color: #94A3B8;">Sydney, NSW, Australia</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fa-solid fa-clock"></i>
+            <div>
+              <p style="font-weight: 600;">Hours</p>
+              <p style="color: #94A3B8;">Mon - Fri: 9am - 5pm</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-side">
+          <h2>Send an Enquiry</h2>
+          <form id="contactForm" action="https://formspree.io/f/mkgzajee" method="POST">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label>Your Email</label>
+              <input type="email" name="email" placeholder="john@example.com" required>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea name="message" rows="5" placeholder="How can we help you?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="branding-logo" style="color: white; margin-bottom: 24px; display: block;">Fone<span>2</span>Cash</a>
+          <p style="color: #94A3B8; max-width: 400px;">
+            Providing a professional, secure, and efficient way to recycle and sell your electronics since 2026.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="send.html">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="sell.html">Sell Your Phone</a></li>
+            <li><a href="home.html">Get a Quote</a></li>
+            <li><a href="#">Corporate Buyback</a></li>
+            <li><a href="#">Wholesale</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Fone2Cash. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { db } from './firebase-config.js';
+    import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const submitBtn = this.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        await addDoc(collection(db, "messages"), {
+          ...data,
+          timestamp: serverTimestamp()
+        });
+        window.location.href = 'thanks.html';
+      } catch (error) {
+        console.error("Error sending message:", error);
+        alert('There was an error sending your message. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    });
+  </script>
+</body>
+</html>

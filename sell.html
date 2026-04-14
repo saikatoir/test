@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Your Phone | Fone2Cash</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .form-container {
+      max-width: 800px;
+      margin: 120px auto 80px;
+      padding: 48px;
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .form-header h1 {
+      font-size: 2.25rem;
+      margin-bottom: 12px;
+    }
+
+    .form-header p {
+      color: var(--text-muted);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-group label {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--secondary);
+    }
+
+    .form-group input {
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+      background: var(--bg);
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 32px;
+      padding: 16px;
+      font-size: 1.125rem;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 640px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+      .form-container {
+        padding: 24px;
+        margin: 100px 16px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="branding-header">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <a href="index.html" class="branding-logo">Fone<span>2</span>Cash</a>
+      <nav class="desktop-nav">
+        <ul style="display: flex; gap: 32px; font-weight: 500;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sell.html" class="active" style="color: var(--accent);">Sell Phone</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="send.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="home.html" class="btn btn-primary" style="padding: 10px 24px;">Get Quote</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="form-container" data-animate class="visible">
+        <div class="form-header">
+          <h1>Finalise Your Sale</h1>
+          <p>Please provide your details below to complete the process.</p>
+        </div>
+        
+        <form id="contactForm" action="https://formspree.io/f/mkgzajee" method="POST">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label>Mobile Number</label>
+              <input type="tel" name="mobile" placeholder="0400 000 000" pattern="[0-9+ ]{7,15}" required>
+            </div>
+            <div class="form-group full-width">
+              <label>Email Address</label>
+              <input type="email" name="email" placeholder="john@example.com" required>
+            </div>
+            <div class="form-group full-width">
+              <label>Postal Address</label>
+              <input type="text" name="address" placeholder="123 Example St, Sydney NSW 2000" required>
+            </div>
+            
+            <div class="form-group full-width" style="margin-top: 20px; border-top: 1px solid var(--border); padding-top: 24px;">
+              <h3 style="font-size: 1.1rem; margin-bottom: 16px;">Payment Details</h3>
+            </div>
+
+            <div class="form-group full-width">
+              <label>Bank Name</label>
+              <input type="text" name="bank_name" placeholder="e.g. CommBank" required>
+            </div>
+            <div class="form-group">
+              <label>BSB</label>
+              <input type="text" name="bsb" placeholder="123-456" pattern="[0-9\- ]{6,8}" required>
+            </div>
+            <div class="form-group">
+              <label>Account Number</label>
+              <input type="text" name="account_number" placeholder="123456789" required>
+            </div>
+            <div class="form-group full-width">
+              <label>Reference Number (If any)</label>
+              <input type="text" name="reference_number" placeholder="Order Reference">
+            </div>
+          </div>
+      
+          <button type="submit" class="btn btn-primary submit-btn">Submit Details & Get Paid</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="branding-logo" style="color: white; margin-bottom: 24px; display: block;">Fone<span>2</span>Cash</a>
+          <p style="color: #94A3B8; max-width: 400px;">
+            Providing a professional, secure, and efficient way to recycle and sell your electronics since 2026.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="send.html">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="sell.html">Sell Your Phone</a></li>
+            <li><a href="home.html">Get a Quote</a></li>
+            <li><a href="#">Corporate Buyback</a></li>
+            <li><a href="#">Wholesale</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Fone2Cash. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { db } from './firebase-config.js';
+    import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        await addDoc(collection(db, "sales"), {
+          ...data,
+          status: 'pending',
+          timestamp: serverTimestamp()
+        });
+        window.location.href = 'thanks.html';
+      } catch (error) {
+        console.error("Error submitting details:", error);
+        alert('There was an issue submitting your details. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Details & Get Paid';
+      }
+    });
+  </script>
+</body>
+</html>

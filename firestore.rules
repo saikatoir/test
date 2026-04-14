@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow users to submit quotes, sales, and messages
+    match /quotes/{quoteId} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
+    }
+    match /sales/{saleId} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
+    }
+    match /messages/{messageId} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
+    }
+  }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | Fone2Cash</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .success-container {
+      max-width: 600px;
+      margin: 160px auto 80px;
+      padding: 60px 40px;
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      text-align: center;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: #DCFCE7;
+      color: #16A34A;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 32px;
+    }
+
+    .success-container h1 {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+
+    .success-container p {
+      color: var(--text-muted);
+      font-size: 1.125rem;
+      margin-bottom: 40px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="branding-header">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <a href="index.html" class="branding-logo">Fone<span>2</span>Cash</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="success-container" data-animate class="visible">
+        <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+        <h1>Submission Received!</h1>
+        <p>Thank you for choosing Fone2Cash. Our team will review your details and get back to you within 1-2 business days with the next steps.</p>
+        
+        <div class="btn-group">
+          <a href="index.html" class="btn btn-primary">Return Home</a>
+          <a href="home.html" class="btn" style="background: var(--bg); border: 1px solid var(--border);">Get Another Quote</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="margin-top: 100px;">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p>&copy; 2026 Fone2Cash. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

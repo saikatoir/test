@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get a Quote | Fone2Cash</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .quote-container {
+      max-width: 800px;
+      margin: 120px auto 80px;
+      padding: 48px;
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    }
+
+    .quote-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .quote-header h1 {
+      font-size: 2.25rem;
+      margin-bottom: 12px;
+    }
+
+    .quote-header p {
+      color: var(--text-muted);
+    }
+
+    .form-section {
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .form-section:last-of-type {
+      border-bottom: none;
+    }
+
+    .form-section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+
+    select, textarea, input[type="email"] {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+      background: var(--bg);
+      margin-bottom: 20px;
+    }
+
+    select:focus, textarea:focus, input:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+    }
+
+    .question-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 20px;
+    }
+
+    .question-row label {
+      margin-bottom: 0;
+      flex: 1;
+    }
+
+    .options {
+      display: flex;
+      gap: 12px;
+    }
+
+    .options input[type="radio"] {
+      display: none;
+    }
+
+    .options label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 80px;
+      height: 44px;
+      padding: 0 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      background: var(--bg);
+      margin-bottom: 0;
+      color: var(--text-main);
+    }
+
+    .options input[type="radio"]:checked + label {
+      border-color: var(--accent);
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .options label:hover {
+      border-color: var(--accent);
+    }
+
+    .email-highlight {
+      background: #F0F9FF;
+      padding: 24px;
+      border-radius: 8px;
+      border: 1px solid #BAE6FD;
+      margin-top: 20px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 24px;
+      padding: 16px;
+      font-size: 1.125rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 640px) {
+      .quote-container {
+        padding: 24px;
+        margin: 100px 16px 40px;
+      }
+      .question-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .options {
+        width: 100%;
+      }
+      .options label {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="branding-header">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <a href="index.html" class="branding-logo">Fone<span>2</span>Cash</a>
+      <nav class="desktop-nav">
+        <ul style="display: flex; gap: 32px; font-weight: 500;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sell.html">Sell Phone</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="send.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="home.html" class="btn btn-primary" style="padding: 10px 24px;">Get Quote</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="quote-container" data-animate class="visible">
+        <div class="quote-header">
+          <h1>Get Your Custom Quote</h1>
+          <p>Provide details about your device to receive a professional valuation.</p>
+        </div>
+
+        <form id="contactForm" action="https://formspree.io/f/mkgzajee" method="POST">
+          <!-- Device Info -->
+          <div class="form-section">
+            <h2>Device Information</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+              <div>
+                <label for="brand">Brand</label>
+                <select id="brand" name="Brand" required>
+                  <option value="">Choose brand</option>
+                  <option value="Apple">Apple</option>
+                  <option value="Samsung">Samsung</option>
+                </select>
+              </div>
+              <div>
+                <label for="model">Model</label>
+                <select id="model" name="Model" required>
+                  <option value="">Choose model</option>
+                </select>
+              </div>
+              <div>
+                <label for="storage">Storage</label>
+                <select id="storage" name="Storage" required>
+                  <option value="">Choose storage</option>
+                  <option value="64GB">64GB</option>
+                  <option value="128GB">128GB</option>
+                  <option value="256GB">256GB</option>
+                  <option value="512GB">512GB</option>
+                  <option value="1TB">1TB</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Condition -->
+          <div class="form-section">
+            <h2>Device Condition</h2>
+            
+            <div class="question-row hidden" id="icloudQuestion">
+              <label>Is the iCloud wiped?</label>
+              <div class="options">
+                <input type="radio" id="icloudWipedYes" name="iCloud Wiped" value="Yes">
+                <label for="icloudWipedYes">Yes</label>
+                <input type="radio" id="icloudWipedNo" name="iCloud Wiped" value="No">
+                <label for="icloudWipedNo">No</label>
+              </div>
+            </div>
+
+            <div class="question-row">
+              <label>Does it turn on?</label>
+              <div class="options">
+                <input type="radio" id="turnOnYes" name="Turn On" value="Yes" required>
+                <label for="turnOnYes">Yes</label>
+                <input type="radio" id="turnOnNo" name="Turn On" value="No" required>
+                <label for="turnOnNo">No</label>
+              </div>
+            </div>
+
+            <div class="question-row">
+              <label>Is everything functional?</label>
+              <div class="options">
+                <input type="radio" id="functionsFineYes" name="Everything Functional" value="Yes" required>
+                <label for="functionsFineYes">Yes</label>
+                <input type="radio" id="functionsFineNo" name="Everything Functional" value="No" required>
+                <label for="functionsFineNo">No</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Media Upload -->
+          <div class="form-section">
+            <h2>Device Media (Optional)</h2>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">
+              Adding photos and a short video helps us give you a more accurate and faster quote.
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+              <div>
+                <label for="photos">Photos (Up to 5)</label>
+                <input type="file" id="photos" name="Photos" accept="image/*" multiple style="padding: 8px;">
+                <div id="photoPreview" style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;"></div>
+              </div>
+              <div>
+                <label for="video">Short Video (Max 30s)</label>
+                <input type="file" id="video" name="Video" accept="video/*" style="padding: 8px;">
+              </div>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="form-section">
+            <label for="description">Additional Details (Optional)</label>
+            <textarea id="description" name="Description" rows="4" placeholder="Describe any issues or cosmetic condition..."></textarea>
+          </div>
+
+          <!-- Contact Email -->
+          <div class="email-highlight">
+            <label for="email">Your Professional Email</label>
+            <input type="email" id="email" name="Email" placeholder="email@example.com" required style="margin-bottom: 8px;">
+            <p style="font-size: 0.85rem; color: var(--accent-hover);"><i class="fa-solid fa-circle-info"></i> We will send your customised quote to this address.</p>
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn btn-primary submit-btn">Request Quote</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="branding-logo" style="color: white; margin-bottom: 24px; display: block;">Fone<span>2</span>Cash</a>
+          <p style="color: #94A3B8; max-width: 400px;">
+            Providing a professional, secure, and efficient way to recycle and sell your electronics since 2026.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="send.html">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="sell.html">Sell Your Phone</a></li>
+            <li><a href="home.html">Get a Quote</a></li>
+            <li><a href="#">Corporate Buyback</a></li>
+            <li><a href="#">Wholesale</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Fone2Cash. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { db, storage } from './firebase-config.js';
+    import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
+
+    // Models for each brand
+    const models = {
+      Apple: [
+        "iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max",
+        "iPhone 12", "iPhone 12 Pro", "iPhone 12 Pro Max", "iPhone 12 Mini",
+        "iPhone 13", "iPhone 13 Mini", "iPhone 13 Pro", "iPhone 13 Pro Max",
+        "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max",
+        "iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max",
+        "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max"
+      ],
+      Samsung: [
+        "Galaxy S21", "Galaxy S21+", "Galaxy S21 Ultra",
+        "Galaxy S22", "Galaxy S22+", "Galaxy S22 Ultra",
+        "Galaxy S23", "Galaxy S23+", "Galaxy S23 Ultra",
+        "Galaxy S24", "Galaxy S24+", "Galaxy S24 Ultra",
+        "Galaxy S25", "Galaxy S25+", "Galaxy S25 Ultra"
+      ]
+    };
+
+    // Update models based on selected brand
+    document.getElementById('brand').addEventListener('change', function () {
+      const brand = this.value;
+      const modelSelect = document.getElementById('model');
+      const icloudQuestion = document.getElementById('icloudQuestion');
+
+      modelSelect.innerHTML = '<option value="">Choose model</option>';
+
+      if (models[brand]) {
+        models[brand].forEach(model => {
+          const option = document.createElement('option');
+          option.value = model;
+          option.textContent = model;
+          modelSelect.appendChild(option);
+        });
+      }
+
+      if (brand === "Apple") {
+        icloudQuestion.classList.remove('hidden');
+      } else {
+        icloudQuestion.classList.add('hidden');
+      }
+    });
+
+    // Photo Preview
+    document.getElementById('photos').addEventListener('change', function(e) {
+      const preview = document.getElementById('photoPreview');
+      preview.innerHTML = '';
+      Array.from(this.files).slice(0, 5).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const img = document.createElement('img');
+          img.src = event.target.result;
+          img.style.width = '60px';
+          img.style.height = '60px';
+          img.style.objectFit = 'cover';
+          img.style.borderRadius = '4px';
+          preview.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Uploading & Sending...';
+
+      try {
+        const brand = document.getElementById('brand').value;
+        const model = document.getElementById('model').value;
+        const storageVal = document.getElementById('storage').value;
+        const turnOn = document.querySelector('input[name="Turn On"]:checked')?.value;
+        const functional = document.querySelector('input[name="Everything Functional"]:checked')?.value;
+        const description = document.getElementById('description').value;
+        const email = document.getElementById('email').value;
+        const icloudWiped = document.querySelector('input[name="iCloud Wiped"]:checked')?.value;
+
+        // Upload Photos
+        const photoUrls = [];
+        const photoFiles = document.getElementById('photos').files;
+        for (let i = 0; i < Math.min(photoFiles.length, 5); i++) {
+          const file = photoFiles[i];
+          const photoRef = ref(storage, `quotes/${Date.now()}_photo_${i}_${file.name}`);
+          const snapshot = await uploadBytes(photoRef, file);
+          const url = await getDownloadURL(snapshot.ref);
+          photoUrls.push(url);
+        }
+
+        // Upload Video
+        let videoUrl = null;
+        const videoFile = document.getElementById('video').files[0];
+        if (videoFile) {
+          const videoRef = ref(storage, `quotes/${Date.now()}_video_${videoFile.name}`);
+          const snapshot = await uploadBytes(videoRef, videoFile);
+          videoUrl = await getDownloadURL(snapshot.ref);
+        }
+
+        // Save to Firestore
+        await addDoc(collection(db, "quotes"), {
+          brand,
+          model,
+          storage: storageVal,
+          turnOn,
+          functional,
+          description,
+          email,
+          icloudWiped: icloudWiped || 'N/A',
+          photos: photoUrls,
+          video: videoUrl,
+          status: 'pending',
+          timestamp: serverTimestamp()
+        });
+
+        window.location.href = 'thanks.html';
+      } catch (error) {
+        console.error("Error submitting quote:", error);
+        alert('There was an issue submitting your request. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Request Quote';
+      }
+    });
+  </script>
+</body>
+</html>
