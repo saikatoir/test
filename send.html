@@ -230,6 +230,20 @@
           ...data,
           timestamp: serverTimestamp()
         });
+
+        // Send Email Notification via Formspree
+        const emailData = new FormData();
+        emailData.append('Subject', `New Enquiry from ${data.name}`);
+        emailData.append('Name', data.name);
+        emailData.append('Email', data.email);
+        emailData.append('Message', data.message);
+
+        fetch('https://formspree.io/f/mkgzajee', {
+          method: 'POST',
+          body: emailData,
+          headers: { 'Accept': 'application/json' }
+        });
+
         window.location.href = 'thanks.html';
       } catch (error) {
         console.error("Error sending message:", error);

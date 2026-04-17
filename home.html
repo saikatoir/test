@@ -481,6 +481,20 @@
           timestamp: serverTimestamp()
         });
 
+        // Send Email Notification via Formspree
+        const emailData = new FormData();
+        emailData.append('Subject', `New Quote Request: ${brand} ${model}`);
+        emailData.append('Device', `${brand} ${model} (${storageVal})`);
+        emailData.append('Condition', `Turns On: ${turnOn}, Functional: ${functional}`);
+        emailData.append('Customer Email', email);
+        emailData.append('Dashboard Link', 'https://fone2cash-prod-2026.web.app/admin/');
+
+        fetch('https://formspree.io/f/mkgzajee', {
+          method: 'POST',
+          body: emailData,
+          headers: { 'Accept': 'application/json' }
+        });
+
         window.location.href = 'thanks.html';
       } catch (error) {
         console.error("Error submitting quote:", error);
